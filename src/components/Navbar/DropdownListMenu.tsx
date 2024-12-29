@@ -53,7 +53,9 @@ const DropdownListMenu = () => {
             );
           })}
           <DropdownMenuSeparator />
-          <SignOutLinks />
+          <DropdownMenuItem>
+            <SignOutLinks />
+          </DropdownMenuItem>
         </SignedIn>
       </DropdownMenuContent>
     </DropdownMenu>
