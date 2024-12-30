@@ -1,19 +1,13 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { SubmitButton } from "@/components/Form/Buttons";
 import Formcontainer from "@/components/Form/Formcontainer";
 import FormInput from "@/components/Form/FormInput";
+import { createProfileAction } from "../../../../actions/actions";
+import { redirect } from "next/navigation";
+import { currentUser } from "@clerk/nextjs/server";
 
-const createProfileAction = async (prevState: any, formData: FormData) => {
-  "use server";
-  const firstName = formData.get("firstName") as string;
-  //validate
-  // insert to DB
-  // return
-  console.log("FirstName Function Log:", firstName);
-  return { message: "Create Profile Success!!!" };
-};
-
-const CreateProfilePage = () => {
+const CreateProfilePage = async () => {
+  const user = await currentUser();
+  if (user?.privateMetadata.hasProfile) redirect("/");
   return (
     <section>
       <h1 className="text-2xl font-semibold mb-8 capitalize ">New User</h1>
