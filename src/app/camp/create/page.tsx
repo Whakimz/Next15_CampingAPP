@@ -2,6 +2,11 @@ import { SubmitButton } from "@/components/Form/Buttons";
 import Formcontainer from "@/components/Form/Formcontainer";
 import FormInput from "@/components/Form/FormInput";
 import { createLandmarkAction } from "../../../../actions/actions";
+import CategoryInput from "@/components/Form/CategoryInput";
+
+import TextAreaInput from "@/components/Form/TextAreaInput";
+import ProvincesInput from "../../../components/Form/ProvincesInput";
+import MapLandmark from "@/components/map/MapLandmark";
 
 const CreateProfilePage = async () => {
   return (
@@ -18,7 +23,28 @@ const CreateProfilePage = async () => {
               type="text"
               placeholder="Landmark Name"
             />
+            {/* Category */}
+            <CategoryInput />
           </div>
+
+          <TextAreaInput name="description" />
+
+          <div className="grid md:grid-cols-2 gap-4 mt-4">
+            <FormInput
+              name="price"
+              label="Price"
+              type="number"
+              placeholder="Price"
+            />
+            <ProvincesInput />
+          </div>
+          {/* Divider */}
+          <hr className="my-6 border-gray-300" />
+          <MapLandmark />
+
+          {/* Divider */}
+          <hr className="my-6 border-gray-300" />
+
           <SubmitButton text="create Landmark" size="lg" />
         </Formcontainer>
       </div>
