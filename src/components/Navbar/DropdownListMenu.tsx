@@ -31,7 +31,7 @@ const DropdownListMenu = () => {
         {/* Signouted */}
         <SignedOut>
           <DropdownMenuItem>
-            <SignInButton>
+            <SignInButton mode="modal">
               <button>Login</button>
             </SignInButton>
           </DropdownMenuItem>
