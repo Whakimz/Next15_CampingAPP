@@ -19,6 +19,20 @@ export const imageSchema = z.object({
 })
 
 
+export const landmarkSchema = z.object({
+    name: z.string()
+        .min(2, { message: 'ชื่อต้องมากกว่า 2 อักขระขึ้นไป!!!' })
+        .max(30, { message: 'ชื่อต้องน้อยกว่า 30 อักขระขึ้นไป!!!' }),
+    category: z.string(),
+    description: z.string()
+        .min(2, { message: 'รายละเอียดต้องมากกว่า 2 อักขระขึ้นไป!!!' })
+        .max(200, { message: 'รายละเอียดต้องน้อยกว่า 200 อักขระขึ้นไป!!!' }),
+    price: z.coerce.number().int().min(0, { message: 'ราคาต้องมากกว่า 0' }),
+    province: z.string(),
+    lat: z.coerce.number(),
+    lng: z.coerce.number(),
+})
+
 export const validateWithZod = <T>(schema: ZodSchema<T>, data: unknown): T => {
     const result = schema.safeParse(data);
     if (!result.success) {

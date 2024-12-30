@@ -4,10 +4,12 @@ const TextAreaInput = ({
   name,
   labelText,
   defaultValue,
+  placeholder,
 }: {
   name: string;
   labelText?: string;
   defaultValue?: string;
+  placeholder?: string;
 }) => {
   return (
     <div className="mb-2">
@@ -19,6 +21,7 @@ const TextAreaInput = ({
         name={name}
         defaultValue={defaultValue}
         rows={5}
+        placeholder={placeholder}
         required
       />
     </div>

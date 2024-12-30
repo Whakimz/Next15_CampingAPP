@@ -1,4 +1,4 @@
-// import { Input } from "@/components/ui/input";
+// rafce
 import { Label } from "@/components/ui/label";
 import {
   Select,
@@ -9,26 +9,27 @@ import {
 } from "@/components/ui/select";
 import { provinces } from "../../../utils/province";
 
-const ProvincesInput = ({ defaultValue }: { defaultValue?: string }) => {
-  const name = "Provinces";
+const ProvinceInput = ({ defaultValue }: { defaultValue?: string }) => {
+  const name = "province";
+
   return (
     <div className="mb-2">
-      <Label className="capitalize" htmlFor={name}>
+      <Label htmlFor={name} className="capitalize">
         {name}
       </Label>
       <Select
+        defaultValue={defaultValue || provinces[0].PROVINCE_NAME}
         name={name}
         required
-        defaultValue={defaultValue || provinces[0].PROVINCE_NAME}
       >
-        <SelectTrigger className="w-[180px]">
+        <SelectTrigger>
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
           {provinces.map((item) => {
             return (
-              <SelectItem value={item.PROVINCE_NAME} key={item.PROVINCE_ID}>
-                <span className="capitalize flex items-center gap-4 ">
+              <SelectItem key={item.PROVINCE_ID} value={item.PROVINCE_NAME}>
+                <span className="capitalize flex items-center gap-4">
                   {item.PROVINCE_NAME}
                 </span>
               </SelectItem>
@@ -39,4 +40,4 @@ const ProvincesInput = ({ defaultValue }: { defaultValue?: string }) => {
     </div>
   );
 };
-export default ProvincesInput;
+export default ProvinceInput;
