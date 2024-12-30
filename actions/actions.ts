@@ -1,20 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use server";
 import { clerkClient, currentUser } from "@clerk/nextjs/server";
-import { profileSchema, validateWithZod } from "../utils/schema";
+import { imageSchema, profileSchema, validateWithZod } from "../utils/schema";
 import db from '../utils/db'
 import { redirect } from "next/navigation";
 
 
-// const getAuthUser = async () => {
-//     const user = await currentUser()
+const getAuthUser = async () => {
+    const user = await currentUser()
 
-//     if (!user) {
-//         throw new Error('You must Logged!!!')
-//     }
-//     if (!user.privateMetadata.hasProfile) redirect('/profile/create')
-//     return user
-// }
+    if (!user) {
+        throw new Error('You must Logged!!!')
+    }
+    if (!user.privateMetadata.hasProfile) redirect('/profile/create')
+    return user
+}
 
 
 const renderError = (error: unknown): { message: string } => {
@@ -27,12 +27,15 @@ export const createProfileAction = async (
     formData: FormData
 ) => {
     try {
-        const user = await currentUser()
-        if (!user) throw new Error('Please Login!!!')
+        const user = await getAuthUser()
+
         const rawData = Object.fromEntries(formData);
-        console.log("Raw Data:", rawData); // ตรวจสอบข้อมูลก่อน validate
 
         const validatedField = validateWithZod(profileSchema, rawData);
+
+
+        // console.log("Raw Data:", rawData); // ตรวจสอบข้อมูลก่อน validate
+
         // console.log("Validated Field:", validatedField);
 
         await db.profile.create({
@@ -67,7 +70,10 @@ export const createLandmarkAction = async (
         const user = await currentUser()
         if (!user) throw new Error('Please Login!!!')
         const rawData = Object.fromEntries(formData);
-        console.log("Raw Data:", rawData); // ตรวจสอบข้อมูลก่อน validate
+        const file = formData.get('image') as File
+        const validatedFile = validateWithZod(imageSchema, { image: file })
+        console.log('validated', validatedFile);
+
 
         // const validatedField = validateWithZod(profileSchema, rawData);
         // console.log("Validated Field:", validatedField);

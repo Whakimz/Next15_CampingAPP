@@ -7,6 +7,7 @@ import CategoryInput from "@/components/Form/CategoryInput";
 import TextAreaInput from "@/components/Form/TextAreaInput";
 import ProvincesInput from "../../../components/Form/ProvincesInput";
 import MapLandmark from "@/components/map/MapLandmark";
+import ImageInput from "@/components/Form/ImageInput";
 
 const CreateProfilePage = async () => {
   return (
@@ -38,6 +39,7 @@ const CreateProfilePage = async () => {
             />
             <ProvincesInput />
           </div>
+          <ImageInput />
           {/* Divider */}
           <hr className="my-6 border-gray-300" />
           <MapLandmark />

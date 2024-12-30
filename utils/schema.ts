@@ -6,15 +6,29 @@ export const profileSchema = z.object({
     username: z.string().min(2, { message: ' อักขระต้องมากกว่า 2 อักขระ' })
 })
 
+const validateFile = () => {
+    const maxFileSize = 1024 * 1024
+    return z.instanceof(File)
+        .refine((file) => {
+            return file.size <= maxFileSize
+        }, 'File size must be less than 1MB')
+}
+
+export const imageSchema = z.object({
+    image: validateFile()
+})
+
+
 export const validateWithZod = <T>(schema: ZodSchema<T>, data: unknown): T => {
     const result = schema.safeParse(data);
     if (!result.success) {
         const errors = result.error.errors.map((error) => {
-            return `${error.path.join(".")}: ${error.message}`;
+            console.error("Field Error:", error.path, error.message); // Log path ใน console
+            return error.message; // แต่แสดงเฉพาะ message ใน toast
         });
-        console.error("Validation Error:", { data, errors });
-        throw new Error(errors.join(","));
+        throw new Error(errors.join(", "));
     }
     return result.data;
 };
+
 

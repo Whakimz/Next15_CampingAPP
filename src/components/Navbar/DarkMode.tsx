@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun, Laptop } from "lucide-react"; // นำเข้าไอคอนจาก lucide-react
 import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export function DarkMode() {
-  const { setTheme } = useTheme();
+  const { setTheme } = useTheme(); // use resolvedTheme to detect the current theme
 
   return (
     <DropdownMenu>
@@ -25,13 +25,21 @@ export function DarkMode() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
+        {/* Light Theme */}
         <DropdownMenuItem onClick={() => setTheme("light")}>
+          <Sun className="mr-2 h-[1rem] w-[1rem]" />
           Light
         </DropdownMenuItem>
+
+        {/* Dark Theme */}
         <DropdownMenuItem onClick={() => setTheme("dark")}>
+          <Moon className="mr-2 h-[1rem] w-[1rem]" />
           Dark
         </DropdownMenuItem>
+
+        {/* System Theme */}
         <DropdownMenuItem onClick={() => setTheme("system")}>
+          <Laptop className="mr-2 h-[1rem] w-[1rem]" />
           System
         </DropdownMenuItem>
       </DropdownMenuContent>
