@@ -11,7 +11,7 @@ const TextAreaInput = ({
 }) => {
   return (
     <div className="mb-2">
-      <label htmlFor={name} className="capitalize">
+      <label htmlFor={name} className="capitalize text-md font-semibold">
         {labelText || name}
       </label>
       <Textarea

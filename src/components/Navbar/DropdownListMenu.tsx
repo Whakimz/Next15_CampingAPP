@@ -48,6 +48,7 @@ const DropdownListMenu = () => {
           {links.map((item, index) => {
             return (
               <DropdownMenuItem key={index}>
+                <item.icon className="mr-2" />
                 <Link href={item.href}>{item.label}</Link>
               </DropdownMenuItem>
             );
