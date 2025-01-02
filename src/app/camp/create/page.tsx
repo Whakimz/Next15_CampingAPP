@@ -8,7 +8,7 @@ import ProvincesInput from "../../../components/Form/ProvincesInput";
 import MapLandmark from "@/components/map/MapLandmark";
 import ImageInput from "@/components/Form/ImageInput";
 
-const CreateProfilePage = async () => {
+const CreateLandmarkPage = async () => {
   return (
     <section className="container mx-auto p-6">
       <h1 className="text-2xl font-semibold mb-8 capitalize">
@@ -70,4 +70,4 @@ const CreateProfilePage = async () => {
   );
 };
 
-export default CreateProfilePage;
+export default CreateLandmarkPage;

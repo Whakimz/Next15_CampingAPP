@@ -1,4 +1,4 @@
-import { Home, User, Heart, Tent, TentTree } from "lucide-react"; // นำเข้าไอคอนจาก lucide-react
+import { Home, User, Heart, Plus, TentTree } from "lucide-react"; // นำเข้าไอคอนจาก lucide-react
 
 type NavLinks = {
     href: string;
@@ -10,6 +10,6 @@ export const links: NavLinks[] = [
     { href: "/", label: "Home", icon: Home },
     { href: "/profile", label: "Profile", icon: User },
     { href: "/favorits", label: "Favorite", icon: Heart },
-    { href: "/camp", label: "Camp", icon: Tent },
-    { href: "/camp/create", label: "Create Landmark", icon: TentTree },
+    { href: "/camp", label: "Camp", icon: TentTree },
+    { href: "/camp/create", label: "Create Landmark", icon: Plus },
 ];

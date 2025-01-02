@@ -6,6 +6,14 @@ const nextConfig: NextConfig = {
     serverActions: {
       bodySizeLimit: '5mb'
     }
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'bpttekcrmvskgausqmgn.supabase.co'
+      }
+    ]
   }
 };
 

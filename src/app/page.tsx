@@ -1,14 +1,11 @@
+import LandmarkContainer from "@/components/home/LandmarkContainer";
 
 const page = () => {
   return (
-   <>
-    <div>
-      page
-    </div>
-    <h1>Hello NextJS</h1>
+    <>
+      <LandmarkContainer />
+    </>
+  );
+};
 
-   </>
-  )
-}
-
-export default page
+export default page;

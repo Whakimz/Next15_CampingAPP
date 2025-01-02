@@ -24,7 +24,7 @@ export function DarkMode() {
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent className="dark:border-[#27272ae3]" align="end">
         {/* Light Theme */}
         <DropdownMenuItem onClick={() => setTheme("light")}>
           <Sun className="mr-2 h-[1rem] w-[1rem]" />
