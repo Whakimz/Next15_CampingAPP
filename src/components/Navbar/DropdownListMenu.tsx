@@ -20,7 +20,7 @@ const DropdownListMenu = () => {
   const { user } = useUser(); // ใช้ useUser hook เพื่อนำข้อมูลผู้ใช้
 
   // Log user data for debugging (optional)
-  console.log("Logged in user:", user);
+  // console.log("Logged in user:", user);
 
   return (
     <DropdownMenu>

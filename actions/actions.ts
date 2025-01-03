@@ -90,12 +90,16 @@ export const createLandmarkAction = async (
     redirect("/");
 };
 
-export const fecthLandmarks = async (
-    //search query
-
-) => {
+export const fecthLandmarks = async ({ search = '', category }: { search?: string, category?: string }) => {
     //code body
     const landmarks = await db.landmark.findMany({
+        where: {
+            category,
+            OR: [
+                { name: { contains: search, mode: 'insensitive' } },
+                { description: { contains: search, mode: 'insensitive' } }
+            ]
+        },
         orderBy: {
             createdAt: 'desc'
         }

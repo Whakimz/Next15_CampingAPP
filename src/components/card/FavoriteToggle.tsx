@@ -7,7 +7,6 @@ import FavoriteToggleForm from "./FavoriteToggleForm";
 
 const FavoriteToggle = async ({ landmarkId }: { landmarkId: string }) => {
   const { userId } = await auth();
-  console.log(userId);
   if (!userId) return <SignIncardButton />;
   const favoriteId = await fetchFavoriteId({ landmarkId });
 

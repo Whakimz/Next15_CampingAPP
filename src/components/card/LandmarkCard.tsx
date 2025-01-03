@@ -29,7 +29,14 @@ const LandmarkCard = ({ landmark }: { landmark: LandmarksCardProps }) => {
       </p>
 
       <div className="mt-2 flex items-center justify-between px-3 pb-3">
-        <span className="font-semibold text-sm ">THB {price}</span>
+        <span className="font-semibold text-sm">
+          THB{" "}
+          {price.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          })}
+        </span>
+
         <p className="text-sm font-light">{province}</p>
       </div>
 

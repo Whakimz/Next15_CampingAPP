@@ -64,3 +64,30 @@
     @apply px-8 mx-auto;
   }
 }
+
+/* สำหรับ Pagination bullet */
+.swiper-pagination-bullet {
+  background-color: rgba(255, 255, 255, 0.5) !important; /* โปร่งแสง */
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+}
+
+/* เมื่อ hover หรือ active */
+.swiper-pagination-bullet-active {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    1
+  ) !important; /* สีที่เข้มขึ้นเมื่อ active */
+}
+
+/* สำหรับ Pagination container */
+.swiper-pagination {
+  position: absolute;
+  bottom: 20px; /* ตำแหน่งของ pagination */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}

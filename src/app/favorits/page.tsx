@@ -3,7 +3,6 @@ import { fecthFavorite } from "../../../actions/actions";
 
 const favoritsPage = async () => {
   const favorites = await fecthFavorite();
-  console.log(favorites);
 
   return <LandmarkList landmarks={favorites} />;
 };
