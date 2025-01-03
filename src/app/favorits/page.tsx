@@ -1,4 +1,10 @@
-const favoritsPage = () => {
-  return <div>favoritsPage</div>;
+import LandmarkList from "@/components/home/LandmarkList";
+import { fecthFavorite } from "../../../actions/actions";
+
+const favoritsPage = async () => {
+  const favorites = await fecthFavorite();
+  console.log(favorites);
+
+  return <LandmarkList landmarks={favorites} />;
 };
 export default favoritsPage;
