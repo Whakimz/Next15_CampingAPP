@@ -16,7 +16,7 @@ const EmptyList = ({
   const router = useRouter(); // ใช้ useRouter จาก next/navigation
 
   const handleClick = () => {
-    router.push("/"); // นำทางไปยังหน้า '/'
+    router.push("/");
   };
 
   return (
