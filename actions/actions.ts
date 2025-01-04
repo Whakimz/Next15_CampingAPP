@@ -107,6 +107,17 @@ export const fecthLandmarks = async ({ search = '', category }: { search?: strin
 
     return landmarks
 }
+export const fecthLandmarksHero = async () => {
+    //code body
+    const landmarks = await db.landmark.findMany({
+        orderBy: {
+            createdAt: 'desc'
+        },
+        take: 8
+    })
+
+    return landmarks
+}
 
 export const fetchFavoriteId = async ({ landmarkId }: { landmarkId: string }) => {
     const user = await getAuthUser();

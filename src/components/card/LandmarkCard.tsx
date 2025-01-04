@@ -18,7 +18,7 @@ const LandmarkCard = ({ landmark }: { landmark: LandmarksCardProps }) => {
         />
       </div>
       <div className="flex items-center justify-between p-3">
-        <h3 className="text-lg font-semibold text-green-600 dark:text-green-400 mt-1">
+        <h3 className="text-lg font-semibold text-primary dark:text-primary mt-1">
           {name.substring(0, 30)}
         </h3>
         <LandmarkStarRating />

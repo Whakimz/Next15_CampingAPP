@@ -4,7 +4,7 @@ const OtherInfo = ({ landmark }: { landmark: LandmarksCardProps }) => {
   return (
     <div className="text-white space-y-3">
       {/* Province */}
-      <p className="inline-block text-lg text-white bg-green-700 px-4 py-1 rounded-full">
+      <p className="inline-block text-lg text-white bg-primary px-4 py-1 rounded-full">
         {landmark.province}
       </p>
 

@@ -3,6 +3,11 @@ import { Skeleton } from "../ui/skeleton";
 const LoadingCard = () => {
   return (
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-8">
+      {/* เรียกใช้ SkeletonHero */}
+      <div className="sm:col-span-2 lg:col-span-3 xl:col-span-4">
+        <SkeletonHero />
+      </div>
+
       <SkeletonCard />
       <SkeletonCard />
       <SkeletonCard />
@@ -42,4 +47,27 @@ export const SkeletonCard = () => {
     </>
   );
 };
+
+// ฟังก์ชัน SkeletonHero
+export const SkeletonHero = () => {
+  return (
+    <div className="relative w-full">
+      <div className="relative overflow-hidden rounded-lg">
+        {/* Main hero image skeleton */}
+        <Skeleton className="w-full h-[32rem] bg-gray-200 dark:bg-[#1a1a1a]" />
+
+        {/* Overlay content */}
+        <div className="absolute bottom-0 left-0 w-full p-6">
+          <div className="flex flex-col space-y-2">
+            {/* Title skeleton */}
+            <Skeleton className="h-8 w-64 bg-gray-300 dark:bg-[#1f1f1f] rounded-lg" />
+            {/* Subtitle skeleton */}
+            <Skeleton className="h-4 w-48 bg-gray-300 dark:bg-[#1f1f1f] rounded-lg" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default LoadingCard;
