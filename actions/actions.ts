@@ -193,3 +193,14 @@ export const fecthFavorite = async () => {
 
     return favorites.map((favorite) => favorite.landmark)
 }
+
+export const fectLandmarkDetails = async ({ id }: { id: string }) => {
+    return db.landmark.findFirst({
+        where: {
+            id
+        },
+        include: {
+            profile: true
+        }
+    })
+}
